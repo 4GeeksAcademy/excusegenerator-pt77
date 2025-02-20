@@ -3,3 +3,8 @@
 body{
     background: blue;
 }
+
+h {
+    color: white;
+    font-size: 3rem;
+}
