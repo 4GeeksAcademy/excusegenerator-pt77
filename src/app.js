@@ -4,11 +4,15 @@ import "./style.css";
 
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
-window.onload = function() {
+window.onload = function () {
   generateexcuse()
+  document.querySelector("button").addEventListener("click", () => {
+    document.querySelector("h1").innerHTML = generateexcuse()
+  })
+  
 };
 
-const generateexcuse = () =>  {
+const generateexcuse = () => {
 
   const whoarray = ["dad", "mom", "sister", "uncle", "long lost cousin", "twice removed twin brother"];
   const actionarray = ["hit", "sent", "gave", "excommunicated", "broke", "ate"];
@@ -21,15 +25,9 @@ const generateexcuse = () =>  {
   let whatindex = Math.floor(Math.random() * whatarray.length)
   let whenindex = Math.floor(Math.random() * whenarray.length)
 
-  const who = document.querySelector(".who")
-  const action = document.querySelector(".action")
-  const what = document.querySelector(".what")
-  const when = document.querySelector(".when")
-
-  who.innerHTML = whoarray[whoindex]
-  action.innerHTML = actionarray[actionindex]
-  what.innerHTML = whatarray[whatindex]
-  when.innerHTML = whenarray[whenindex]
-
+  const h1 = document.querySelector("h1")
+  const excuse = `My ${whoarray[whoindex]} ${actionarray[actionindex]} my ${whatarray[whatindex]} ${whenarray[whenindex]}.`
+  h1.innerHTML = excuse;
+  return excuse
 };
 
